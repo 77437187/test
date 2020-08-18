@@ -1,0 +1,43 @@
+mv /data/weaver/Resin  /data/weaver/Resin3
+cd /data/soft/20200402upgrade-file/20200402upgrade-package && unzip GDWSSPJTGFecology20191025-092.zip 
+rsync -avP --keep-dirlinks /data/soft/20200402upgrade-file/20200402upgrade-package/ecology/ /data/weaver/ecology
+
+cd /data/soft/20200402upgrade-file/Resin4andScript && unzip Resin-4.0.58.zip -d /data/weaver/
+                                 
+## 手动解压需要个性以下四个文件（不跑python）
+/data/weaver/Resin4/conf/resin.xml               
+/data/weaver/Resin4/bin/startresin.sh stopresin.sh resin.sh
+
+                                 
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.42:/data/weaver/Resin4/conf/resin.xml
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.42:/data/weaver/Resin4/bin/
+      
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.43:/data/weaver/Resin4/conf/resin.xml                            
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.43:/data/weaver/Resin4/bin/
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.44:/data/weaver/Resin4/conf/resin.xml                            
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.44:/data/weaver/Resin4/bin/  
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.45:/data/weaver/Resin4/conf/resin.xml                      
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.45:/data/weaver/Resin4/bin/ 
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.46:/data/weaver/Resin4/conf/resin.xml                      
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.46:/data/weaver/Resin4/bin/  
+
+                                                                                                 
+然后在各台APP删了以下的包
+rm -f /data/weaver/ecology/WEB-INF/lib/slf4j-api-1.4.2.jar
+rm -f /data/weaver/ecology/WEB-INF/lib/slf4j-log4j12-1.4.2.jar
+
+startresin.sh
+
+
+
+-------
+python /data/weaver/Resin3_upgrade_Resin4_forLinux_v2.1.py
+相应输入路径:
+/data/weaver/ecology
+/data/weaver/Resin3
+/data/weaver/Resin
+/data/weaver/jdk1.8.0_73_1
+-------
