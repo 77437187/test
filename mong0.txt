@@ -1,0 +1,13 @@
+
+db.createUser({user: "myroot",pwd: "123456",roles: ["root"]})
+db.dropUser("myadmin")
+db.system.users.find()
+db.changeUserPassword("myroot"，“123456”)
+db.auth("myroot"，“123456”)
+db.createUser({user: "test",pwd: "123456",roles: [{role: "readWrite",db:"mydb"}]})
+
+
+
+
+
+
