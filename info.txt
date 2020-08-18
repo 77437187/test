@@ -1,0 +1,155 @@
+2020
+
+/Users/wens/Downloads/crack
+
+
+1、仿真模拟监控设置，如监控用户登陆？
+2、客户端部署方式？ 容器的客户端安装如何？
+3、采样频率？ 全量还是？
+4、手机的APP的有几版发版，平台可以分版本查看信息？
+
+
+1、监控点在那里分布？
+2、仿真模拟监控设置，如监控用户登陆？
+
+
+oneapm - 外网测点要收费
+
+
+10.11.18.1
+10.11.18.11
+
+
+灾备演练 回切
+
+agent 批量安装 ， windows?
+
+10.11.39.10 禁用监控
+
+3 4 5 12 24
+
+回退
+
+APMAPM
+线上熔断
+禁用功能
+
+
+1、新旧版目录架构说明
+
+
+2、777权限解决
+3、error日志 
+4、查找hosts IP的配置文件修改。
+5 、架构图 真实的IP e9 mobile redis db nginx 金蝶 京东惠采   （外部网）
+
+升级后确定流程是否用爆掉？
+
+
+10.11.48.40 oa-ng
+10.11.48.41 app01
+10.11.48.42 app02  
+10.11.48.43 app03  
+10.11.48.44 app04  
+10.11.48.45 app05  
+10.11.48.46 app06  
+10.11.48.47 edoconv
+10.11.48.48 ebridege
+10.11.48.49 esearch01
+10.11.48.50 redis01
+10.11.48.51 emobile
+10.11.48.52 test-redis02
+10.11.48.54 test-redis03
+10.11.48.56 oa-nfs
+10.11.48.152 oadb-scan
+
+
+
+mv /data/weaver/Resin  /data/weaver/Resin3
+cd /data/soft/20200402upgrade-file/20200402upgrade-package && unzip GDWSSPJTGFecology20191025-092.zip 
+rsync -avP --keep-dirlinks /data/soft/20200402upgrade-file/20200402upgrade-package/ecology/ /data/weaver/ecology
+
+cd /data/soft/20200402upgrade-file/Resin4andScript && unzip Resin-4.0.58.zip -d /data/weaver/
+                                 
+## 手动解压需要个性以下四个文件（不跑python）
+/data/weaver/Resin4/conf/resin.xml               
+/data/weaver/Resin4/bin/startresin.sh stopresin.sh resin.sh
+
+                                 
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.42:/data/weaver/Resin4/conf/resin.xml
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.42:/data/weaver/Resin4/bin/
+      
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.43:/data/weaver/Resin4/conf/resin.xml                            
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.43:/data/weaver/Resin4/bin/
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.44:/data/weaver/Resin4/conf/resin.xml                            
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.44:/data/weaver/Resin4/bin/  
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.45:/data/weaver/Resin4/conf/resin.xml                      
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.45:/data/weaver/Resin4/bin/ 
+
+rsync -avP /data/weaver/Resin4/conf/resin.xml 10.11.48.46:/data/weaver/Resin4/conf/resin.xml                      
+cd /data/weaver/Resin4/bin/ && rsync -avP startresin.sh stopresin.sh resin.sh 10.11.48.46:/data/weaver/Resin4/bin/  
+
+                                                                                                 
+然后在各台APP删了以下的包
+rm -f /data/weaver/ecology/WEB-INF/lib/slf4j-api-1.4.2.jar
+rm -f /data/weaver/ecology/WEB-INF/lib/slf4j-log4j12-1.4.2.jar
+
+startresin.sh
+
+
+
+-------
+python /data/weaver/Resin3_upgrade_Resin4_forLinux_v2.1.py
+相应输入路径:
+/data/weaver/ecology
+/data/weaver/Resin3
+/data/weaver/Resin
+/data/weaver/jdk1.8.0_73_1
+-------
+
+
+
+ansible-playbook install_redis.yml --extra-vars "{'hosts':'10.11.1.81,10.11.1.82,10.11.1.83','mode':'redis_sentinel','sentinelhosts':'10.11.1.81,10.11.1.82,10.11.1.83','path':'/data/redis','port':'6379','sentinelport':'16379','cluster_name':'oa-redis','maxmemory':'8192000000','requirepass':'redis@wens','ansible_ssh_user':'root'}" 
+
+
+
+
+
+1、promethus迁移
+2、联想 - HAB卡的速率（）
+
+3、 NBU广州的同步（）
+
+
+监控项标准化
+告警触发器告警值标准化
+
+
+
+  --configure           Invoke interactive (re)configuration tool. Optionally
+                        use as '--configure s3://some-bucket' to test access
+                        to a specific bucket instead of attempting to list
+                        them all.
+
+
+	
+
+https://ibm.webex.com/meet/yaod GCG Dail In: 4001204789 Access code: 924 645 306
+
+
+1、解释GPFS对像存储的主要概念及大概原理
+2、GPFS的obj storage的讲解及操作，包括指导对像存储的安装，启用，配置，用户新建，授权访问，客户端连接访问设置（安装完成后示范连接）等内容。
+3、对像存储数据存储模式怎样？ 多副本存储？  实际容量2T的空间，需要多少的分配多少空间？
+
+
+
+监控 
+85 分
+
+
+管理技术的要求更高了。
+
+
+blueking 集群状态 命令？ 自定义
